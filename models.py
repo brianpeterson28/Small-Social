@@ -38,7 +38,7 @@ class User(UserMixin, Model):
 
 class Post(Model):
     timestamp = DateTimeField(default=datetime.datetime.now)
-    user = ForeignKeyField(rel_model=User, related_name='posts')
+    user = ForeignKeyField(model=User, related_name='posts') #"rel_model" changed to "model", http://docs.peewee-orm.com/en/latest/peewee/changes.html?highlight=rel_model
     content = TextField()
 
     class Meta:

@@ -82,7 +82,7 @@ def post():
                            content=form.content.data.strip())
         flash("Message posted! Thanks!", "success")
         return redirect(url_for('index'))
-    return render_template('post.html', form=form)
+    return render_template('posts.html', form=form)
 
 
 @app.route('/')

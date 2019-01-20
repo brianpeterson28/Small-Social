@@ -30,6 +30,15 @@ class User(UserMixin, Model):
         except IntegrityError:
             raise ValueError("User already exists.")
 
+class Post(Model):
+    timestamp = DateTimeField(default=datetime.datetime.now)
+    user = ForeignKeyField(rel_model=User, related_name='posts')
+    content = TextField()
+
+    class Meta:
+        datebase = DATABASE
+        order_by = ('-timestamp',)
+
 def initialize():
     DATABASE.connect()
     DATABASE.create_tables([User], safe=True)

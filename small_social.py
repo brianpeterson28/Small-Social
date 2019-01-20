@@ -89,7 +89,7 @@ def post():
 def index():
     stream = models.Post.select().limit(100)
     return render_template('stream.html', stream=stream)
-    return 'Hey'
+
 
 if __name__ == '__main__':
     models.initialize()

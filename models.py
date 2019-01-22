@@ -1,7 +1,5 @@
 import datetime
 
-#from flask.ext.bcrypt import generate_password_hash
-#from flask.ext.login import UserMixin
 from flask_bcrypt import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from peewee import *

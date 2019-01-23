@@ -105,7 +105,7 @@ def stream(username=None):
     return render_template(template, stream=stream, user=user)
 
 @app.route('/follow/<username>')
-@app.login_required
+@login_required
 def follow(username):
     try:
         to_user = models.User.get(models.User.username**username)
@@ -123,7 +123,7 @@ def follow(username):
     return redirect(url_for('stream', username=to_user.username))
 
 @app.route('/unfollow/<username>')
-@app.login_required
+@login_required
 def unfollow(username):
     try:
         to_user = models.User.get(models.User.username**username)
